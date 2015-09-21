@@ -1,5 +1,4 @@
 'use strict';
-
 /* LAB 1: A Trip to Woodland Park Zoo
 
  Welcome to Lab 1 =)
@@ -78,11 +77,23 @@ var sentence2 = 'Come over here so you can scratch my belly.';
 // 'chirp' (10 points)
 
 // your code goes here
+var tempSentence1 = sentence1.split(' ');
+for (var i = 0 ; i < tempSentence1.length ; i++) {
+  tempSentence1[i] = 'chirp';
+}
+
+sentence1 = tempSentence1.join(' ') + '.';
 
 // TODO: part #2: use a while or do-while loop to replace the words in sentence 2
 // with 'chirp' (10 points)
 
 // your code goes here
+var tempSentence2 = sentence2.split(' ');
+for (var i = 0 ; i < tempSentence2.length ; i++) {
+  tempSentence2[i] = 'chirp';
+}
+
+sentence2 = tempSentence2.join(' ') + '.';
 
 // Leave these assertions as-is! If they pass, your code works.
 assert(sentence1 === 'chirp chirp chirp.', 'sentence 1 should have 3 chirps');
@@ -105,6 +116,7 @@ var nextAnimal;
 // Assign one of your favorite animals to nextAnimal using Math.random() to pick
 
 // your code goes here
+nextAnimal = favoriteAnimals[Math.floor(Math.random() * (4 - 0))];
 
 assert(nextAnimal, 'assign something to nextAnimal');
 
@@ -134,6 +146,15 @@ var tooHungryDay;
 */
 
 // your code goes here
+var avg = 0;
+var temp = 0;
+for (var i = 0; i < mealsPerDay.length; i++) {
+  temp += mealsPerDay[i];
+  avg = temp / (i + 1);
+  if (avg < 4 && !tooHungryDay) {
+    tooHungryDay = i + 1;
+  }
+}
 
 assert(tooHungryDay, 'remember to assign the answer to tooHungryDay');
 assert(tooHungryDay < 10, 'the lion is too hungry before the end of the array');
